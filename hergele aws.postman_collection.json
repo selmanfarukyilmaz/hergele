@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "788c9cf9-c6fe-4b58-ace3-239f37a9c30e",
+		"name": "hergele aws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create_card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4Mjk3MjgyNiwianRpIjoiMzJmNzYzMmYtYjVmMi00NDZiLWE5NTctZjU4OTY0YzhiZDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODI5NzI4MjYsImV4cCI6MTY4NDk3MjYyNn0.NappzkF0ATWjLR4xGTr8cj0lFh3zW41llbRXMoWP2ww",
+						"type": "default"
+					},
+					{
+						"key": "Filo",
+						"value": "Test",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"G\":\"asd\",\n\"GUID\": \"f0cd28f2-977e-4e0b-b0f5-e9bde9e74b68\",\n\"KK_Sahibi\": \"Selman Kaya\",\n\"KK_No\": \"1212629411322134\",\n\"KK_SK_Ay\":\"12\",\n\"KK_SK_Yil\":\"2026\",\n\"KK_Kart_Adi\": \"Selmanın kart\",\n\"KK_Islem_ID\": \"uniq_id_003\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.207.228.17:80/tr/api/kart-saklama?",
+					"protocol": "http",
+					"host": [
+						"18",
+						"207",
+						"228",
+						"17"
+					],
+					"port": "80",
+					"path": [
+						"tr",
+						"api",
+						"kart-saklama"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"selman\",\n\"password\": \"kaya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.207.228.17:80/login",
+					"protocol": "http",
+					"host": [
+						"18",
+						"207",
+						"228",
+						"17"
+					],
+					"port": "80",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4Mjk3MjkwNywianRpIjoiMWI5MDNhZjYtNWZkMS00YzNhLTgxZDYtYTIyN2Q5NDRhODVkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODI5NzI5MDcsImV4cCI6MTY4NTU2NDkwN30.T8VXkzQnhznAvtZSO9Ue_LkogFvHBOffHvRxhde0yLE",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					},
+					{
+						"key": "Filo",
+						"value": "Test",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"G\":\"asd\",\n\"GUID\": \"f0cd28f2-977e-4e0b-b0f5-e9bde9e74b68\",\n\"KS_GUID\": \"e74bf284-b141-4713-990c-cebf4e82946f\",\n\"CVV\": \"000\",\n\"KK_Sahibi_GSM\":\"5551234567\",\n\"Hata_URL\":\"www.hata.com\",\n\"Basarili_URL\": \"www.success.com\",\n\"Siparis_ID\": \"1234\",\n\"Siparis_Aciklama\": \"test siprisi\",\n\"Taksit\": 1,\n\"Islem_Tutar\": \"1\",\n\"Toplam_Tutar\": \"1\",\n\"Islem_Guvenlik_Tip\": \"NS\",\n\"Islem_ID\": \"test_id 1\",\n\"IPAdr\": \"111.111.111.111\",\n\"Ref_URL\": \"reftest\",\n\"Data1\": \"data1_test\",\n\"Data2\": \"data2_test\",\n\"Data3\": \"data3_test\",\n\"Data4\": \"data4_test\",\n\"KK_Islem_ID\": \"test işlem\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.207.228.17:80/tr/api/kart-saklamali-odeme",
+					"protocol": "http",
+					"host": [
+						"18",
+						"207",
+						"228",
+						"17"
+					],
+					"port": "80",
+					"path": [
+						"tr",
+						"api",
+						"kart-saklamali-odeme"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel_refund",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4Mjk3MjkwNywianRpIjoiMWI5MDNhZjYtNWZkMS00YzNhLTgxZDYtYTIyN2Q5NDRhODVkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODI5NzI5MDcsImV4cCI6MTY4NTU2NDkwN30.T8VXkzQnhznAvtZSO9Ue_LkogFvHBOffHvRxhde0yLE",
+						"type": "default"
+					},
+					{
+						"key": "Filo",
+						"value": "Test",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"G\":\"asd\",\n\"GUID\": \"f0cd28f2-977e-4e0b-b0f5-e9bde9e74b68\",\n\"Durum\": \"IPTAL\" ,\n\"Siparis_ID\": \"1234\",\n\"Tutar\": \"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.207.228.17:80/tr/api/islem-iptal-ve-iadeleri",
+					"protocol": "http",
+					"host": [
+						"18",
+						"207",
+						"228",
+						"17"
+					],
+					"port": "80",
+					"path": [
+						"tr",
+						"api",
+						"islem-iptal-ve-iadeleri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_list_of_cards",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4Mjk3MjkwNywianRpIjoiMWI5MDNhZjYtNWZkMS00YzNhLTgxZDYtYTIyN2Q5NDRhODVkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODI5NzI5MDcsImV4cCI6MTY4NTU2NDkwN30.T8VXkzQnhznAvtZSO9Ue_LkogFvHBOffHvRxhde0yLE",
+						"type": "default"
+					},
+					{
+						"key": "Filo",
+						"value": "Test",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"G\": \"123\",\n\"GUID\": \"f0cd28f2-977e-4e0b-b0f5-e9bde9e74b68\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.207.228.17:80/tr/api/kart-saklama-listesi",
+					"protocol": "http",
+					"host": [
+						"18",
+						"207",
+						"228",
+						"17"
+					],
+					"port": "80",
+					"path": [
+						"tr",
+						"api",
+						"kart-saklama-listesi"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
