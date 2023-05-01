@@ -11,6 +11,19 @@ from helper import hash_dict
 def create_card(guid: str, cc_owner: str, cc_number: str, exp_month: str, exp_year: str, username: str,
                 card_name: str = None,
                 cc_uniq_id: str = None) -> tuple:
+    """
+    Generates credit card
+
+    :param guid: GUID
+    :param cc_owner: Owner name
+    :param cc_number: Card number
+    :param exp_month: Expire month
+    :param exp_year: Expire year
+    :param username: Current User
+    :param card_name: Card Name
+    :param cc_uniq_id: Card Uniq ID
+    :return: response and status code
+    """
     try:
         collection = db["users"]
         owner = collection.find_one({"GUID": guid}, {"_id": 1, "userNo": 1})
@@ -72,6 +85,13 @@ def create_card(guid: str, cc_owner: str, cc_number: str, exp_month: str, exp_ye
 
 @check_user_exist
 def get_list_cards(guid: str, user) -> tuple:
+    """
+    Gets user GUID and return all cards
+
+    :param guid: GUID
+    :param user: Current user
+    :return: Response, Status code
+    """
     collection = db["users"]
     user_data = collection.find_one({"GUID": guid})
     if user_data["userNo"] != user:

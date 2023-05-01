@@ -15,8 +15,13 @@ class TransactionAPI:
     @validate_data(func_name="payment_endpoint")
     @jwt_required()
     @save_response
-
     def payment_endpoint():
+        """
+        For withdraw(payment)
+        endpoint:/tr/api/kart-saklamali-odeme
+        security: jwt_required
+        :return:
+        """
         current_user = get_jwt_identity()
         request_data = json.loads(request.data)
         data_set, status_code = payment(pos_guid=request_data["GUID"],
@@ -50,6 +55,12 @@ class TransactionAPI:
     @jwt_required()
     @save_response
     def cancel_refund_endpoint():
+        """
+        For refund
+        endpoint:/tr/api/islem-iptal-ve-iadeleri
+        security: jwt_required
+        :return:
+        """
         current_user = get_jwt_identity()
         request_data = json.loads(request.data)
         data_set, status_code = cancel_refund(guid=request_data["GUID"],

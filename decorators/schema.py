@@ -4,7 +4,6 @@ def schematics(func_name: str):
 
     :param func_name: Name of the function used
     :return: A dictionary containing the schema
-    minlength ve maxlength regex
     """
     schemas = {"create_card": {"G": {'required': True, 'empty': False},
                                "GUID": {'required': True, 'empty': False, 'type': 'string', 'minlength': 36,

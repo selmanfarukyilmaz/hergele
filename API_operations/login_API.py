@@ -14,6 +14,10 @@ class LoginAPI:
     @login_API.route('/login', methods=['POST'])
     @validate_data(func_name="login")
     def login():
+        """
+        endpoint:/tr/api/kart-saklamali-odeme
+        :return: Token
+        """
         username = request.json.get('username', None)
         password = request.json.get('password', None)
 
@@ -23,5 +27,5 @@ class LoginAPI:
         if not user or not collection.find_one({"authCode": password}):
             return jsonify({"msg": "Kullanıcı adı veya şifre hatalı"}), 401
 
-        access_token = create_access_token(identity=username, expires_delta=timedelta(minutes=33330))
+        access_token = create_access_token(identity=username, expires_delta=timedelta(minutes=43200))
         return jsonify(access_token=access_token), 200

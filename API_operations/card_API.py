@@ -17,6 +17,11 @@ class CardAPI:
     @jwt_required()
     @save_response
     def create_card():
+        """
+        For Creating Cards
+        endpoint:/tr/api/kart-saklama
+        security: jwt_required
+        """
         current_user = get_jwt_identity()
 
         request_data = json.loads(request.data)
@@ -39,6 +44,11 @@ class CardAPI:
     @jwt_required()
     @save_response
     def get_list_of_cards():
+        """
+        For Getting list of Card for spesific user
+        endpoint:/tr/api/kart-saklama-listesi
+        security: jwt_required
+        """
         current_user = get_jwt_identity()
 
         request_data = json.loads(request.data)

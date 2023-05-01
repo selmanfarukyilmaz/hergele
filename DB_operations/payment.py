@@ -10,20 +10,38 @@ from helper import generate_random_string, generate_random_number_string
 
 
 @check_card
-def payment(pos_guid: str, cc_guid: str, cc_owner_gsm: str, error_url: str, success_url: str, order_id: str, order_desc: str,
+def payment(pos_guid: str, cc_guid: str, cc_owner_gsm: str, error_url: str, success_url: str, order_id: str,
+            order_desc: str,
             installment: int, transaction_amount: str, total_amount: str, security_type: str, ip: str, user: str,
             ref_url: str = None, cvv: str = None, transaction_id: str = None,
             data_1: str = None, data_2: str = None, data_3: str = None, data_4: str = None,
             cc_transaction_id: str = None) -> tuple:
     """
-    Islem_ID değeri Dekont No değeridir
+
+    :param pos_guid: Pos GUID
+    :param cc_guid: Card GUID
+    :param cc_owner_gsm: Owner GSM
+    :param error_url: Error URL
+    :param success_url: Success URL
+    :param order_id: Order ID
+    :param order_desc: Order Desc
+    :param installment: Installment
+    :param transaction_amount: Transaction Amount
+    :param total_amount: Total Amount
+    :param security_type: Security Type
+    :param ip: Ip Address of current user.
+    :param user: Current user
+    :param ref_url: Reference Url
+    :param cvv: CVV code
+    :param transaction_id: Transaction ID
+    :param cc_transaction_id: Card Transaction ID
+    :return: Response, Status code
     """
 
     try:
         collection = db["cards"]
         card = collection.find_one({"GUID": cc_guid})
         if card["balance"] < float(total_amount):
-            print('card["balance"] < total_amount hata')
             response = {"Sonuc": 0,
                         "Sonuc_Str": "Başarısız",
                         "UCD_URL": security_type,
@@ -88,7 +106,6 @@ def payment(pos_guid: str, cc_guid: str, cc_owner_gsm: str, error_url: str, succ
             return_ucd_url = "NONSECURE"
         else:
             return_ucd_url = "www.3d_security.com"
-        print("expection ")
         response = {"Sonuc": 0,
                     "Sonuc_Str": "Başarısız",
                     "UCD_URL": return_ucd_url,
@@ -101,12 +118,17 @@ def payment(pos_guid: str, cc_guid: str, cc_owner_gsm: str, error_url: str, succ
         return response, 404
 
 
-
-
 @transaction_check
 def cancel_refund(guid: str, func_type: str, order_id: str, amount: float, user) -> tuple:
     """
-    Islem_ID değeri Dekont No değeridir
+    If the entire order is to be returned, the "IPTAL" parameter should be sent to the func_type variable.
+    If part of it is to be returned, the "IADE" parameter should go to the func_type variable.
+    :param guid: GUID
+    :param func_type: Type of refund type IADE or IPTAL is allowed
+    :param order_id: Order ID of transaction
+    :param amount: Amount of refund/return
+    :param user: Current User
+    :return: Response, Status code
     """
 
     try:
@@ -129,10 +151,12 @@ def cancel_refund(guid: str, func_type: str, order_id: str, amount: float, user)
 
         amount_data = collection.find_one({"GUID": transaction["user_guid"], "selectedCard": transaction["cc_guid"]})
 
-        collection.find_one_and_update({"GUID": transaction["user_guid"], "selectedCard": transaction["cc_guid"]}, {"$set": {"balance": float(Decimal(float(amount_data["balance"])) + Decimal(float(amount)))}})
+        collection.find_one_and_update({"GUID": transaction["user_guid"], "selectedCard": transaction["cc_guid"]}, {
+            "$set": {"balance": float(Decimal(float(amount_data["balance"])) + Decimal(float(amount)))}})
         collection = db["cards"]
         card_data = collection.find_one({"GUID": transaction["cc_guid"]})
-        collection.find_one_and_update({"GUID": transaction["cc_guid"]}, {"$set": {"balance": float(Decimal(float(card_data["balance"])) + Decimal(float(amount)))}})
+        collection.find_one_and_update({"GUID": transaction["cc_guid"]}, {
+            "$set": {"balance": float(Decimal(float(card_data["balance"])) + Decimal(float(amount)))}})
         collection = db["transaction"]
         collection.insert_one(
             {"GUID": guid,
@@ -154,7 +178,6 @@ def cancel_refund(guid: str, func_type: str, order_id: str, amount: float, user)
 
         return response, 200
     except:
-        print("expection")
         response = {"Sonuc": 0,
                     "Sonuc_Str": "Declined",
                     "Banka_Sonuc_Kod": "0",
