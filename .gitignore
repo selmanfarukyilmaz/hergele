@@ -1,0 +1,11 @@
+# ignore ALL .log files
+#*.log
+*__pycache__
+# ignore ALL files in ANY directory named temp
+venv
+.idea
+__pycache__
+.pytest_cache
+.ipynb_checkpoints
+.idea/vcs.xmlsandbox-env
+config.yaml
