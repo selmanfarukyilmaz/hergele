@@ -181,3 +181,12 @@ def save_response(func):
 
     return wrapper
 
+def require_header_check(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'UserNo' not in request.headers:
+            return jsonify({'error': 'UserNo header is missing'}), 400
+        if 'Filo' not in request.headers:
+            return jsonify({'error': 'Filo header is missing'}), 400
+        return func(*args, **kwargs)
+    return wrapper

@@ -1,10 +1,8 @@
 import json
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask import make_response, Blueprint, request
-
-from DB_operations.card import create_card
 from DB_operations.payment import payment, cancel_refund
-from decorators.validation import validate_data, save_response
+from decorators.validation import validate_data, save_response, require_header_check
 
 transaction_APIs = Blueprint('transaction_APIS', __name__)
 
@@ -13,9 +11,11 @@ class TransactionAPI:
 
     @staticmethod
     @transaction_APIs.route("/tr/api/kart-saklamali-odeme", methods=["POST"])
+    @require_header_check
     @validate_data(func_name="payment_endpoint")
     @jwt_required()
     @save_response
+
     def payment_endpoint():
         current_user = get_jwt_identity()
         request_data = json.loads(request.data)
@@ -45,6 +45,7 @@ class TransactionAPI:
 
     @staticmethod
     @transaction_APIs.route("/tr/api/islem-iptal-ve-iadeleri", methods=["POST"])
+    @require_header_check
     @validate_data(func_name="cancel_refund_endpoint")
     @jwt_required()
     @save_response

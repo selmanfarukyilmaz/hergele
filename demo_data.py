@@ -69,7 +69,7 @@ users = [
         "name": "Şafak",
         "surname": "Uzun",
         "birthDate": "03/03/1990",
-        "phoneNumber": "5521994563",
+        "phoneNumber": "5521924563",
         "email": "safak_uzun@gmail.com",
         "selectedCard": "6c9bc5f2-2ce2-4e3b-95cc-0347ff873b5f",
         "allCards": ["6c9bc5f2-2ce2-4e3b-95cc-0347ff873b5f"
@@ -97,7 +97,7 @@ users = [
         "name": "Zehra",
         "surname": "Çamlıdere",
         "birthDate": "03/03/1990",
-        "phoneNumber": "5521994563",
+        "phoneNumber": "5521997563",
         "email": "zehra_camlidere@gmail.com",
         "selectedCard": "ee198307-5802-4337-964b-cde32329212c",
         "allCards": ["ee198307-5802-4337-964b-cde32329212c"
@@ -149,9 +149,8 @@ users = [
     }
 ]
 
-index_key = [('userNo', 1)]
-index_options = {'unique': True}
-
+db.users.create_index([("GUID", 1), ("userNo", 1), ("email", 1), ("phoneNumber", 1)], unique=True)
+print(db.users.getIndexes)
 users_data = collection.insert_many(users)
 
 collection = db["cards"]
@@ -373,9 +372,12 @@ for card in cards:
 
 collection.insert_many(cards)
 
+db.cards.create_index([("GUID", 1), ("KK_No", 1)], unique=True)
+
 collection = db["counter"]
 
 collection.insert_one(
     {"_id": "user_no_counter",
      "user_no_counter": 10}
 )
+

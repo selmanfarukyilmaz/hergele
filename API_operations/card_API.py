@@ -3,7 +3,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask import make_response, Blueprint, request
 
 from DB_operations.card import create_card, get_list_cards
-from decorators.validation import validate_data, save_response
+from decorators.validation import validate_data, save_response, require_header_check
 
 card_API = Blueprint('user_API', __name__)
 
@@ -12,6 +12,7 @@ class CardAPI:
 
     @staticmethod
     @card_API.route("/tr/api/kart-saklama", methods=["POST"])
+    @require_header_check
     @validate_data(func_name="create_card")
     @jwt_required()
     @save_response
@@ -33,6 +34,7 @@ class CardAPI:
 
     @staticmethod
     @card_API.route("/tr/api/kart-saklama-listesi", methods=["POST"])
+    @require_header_check
     @validate_data(func_name="get_list_of_cards")
     @jwt_required()
     @save_response
