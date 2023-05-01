@@ -12,7 +12,7 @@ def check_user_exist(func):
     def wrapper(guid, *args, **kwargs):
         collection = db["users"]
 
-        if not collection.find_one({"authCode": guid}):
+        if not collection.find_one({"GUID": guid}):
             print("check_user_exist hata")
             response = {"Sonuc": 0,
                         "Sonuc_Str": "Başarısız",
@@ -59,6 +59,7 @@ def validate_data(func_name):
                 return jsonify(validity[0]), 400
             return func(*args, **kwargs)
 
+        wrapper.__name__ = func.__name__
         return wrapper
 
     return real_decorator
@@ -127,6 +128,40 @@ def check_card(func):
 
     return wrapper
 
+def transaction_check(func):
+    def wrapper(guid, func_type, order_id, amount, *args, **kwargs):
+
+        collection = db["transaction"]
+        error_response = {"Sonuc": 0,
+                            "Sonuc_Str": "Declined",
+                            "Banka_Sonuc_Kod": "0",
+                            "Bank_AuthCode": "",
+                            "Bank_Trans_ID": "",
+                            "Bank_Extra": "",
+                            "Bank_HostRefNum": ""}
+        if func_type == "IPTAL":
+            if not collection.find_one({"order_id": order_id, "pos_guid": guid, "total_amount": amount}):
+                print("IPTAL hata")
+                return error_response, 404
+
+        else:
+            transaction = collection.find_one({"order_id": order_id, "pos_guid": guid})
+            if not transaction or transaction["amount"] < amount:
+                print("İADE hata")
+                return error_response, 404
+
+        collection = db["transaction"]
+        transaction = collection.find_one({"order_id": order_id})
+
+        collection = db["users"]
+        if not collection.find_one({"GUID": transaction["user_guid"]}):
+            print("hatae3")
+            return error_response, 404
+
+        return func(guid=guid, func_type=func_type, order_id=order_id, amount=amount, *args, **kwargs)
+
+    return wrapper
+
 
 def save_response(func):
     @wraps(func)
@@ -143,5 +178,6 @@ def save_response(func):
         }
         collection.insert_one(response)
         return result
+
     return wrapper
 

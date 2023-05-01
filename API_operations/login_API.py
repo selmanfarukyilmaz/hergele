@@ -18,10 +18,10 @@ class LoginAPI:
         password = request.json.get('password', None)
 
         collection = db["users"]
-        user = collection.find_one({"username": username})
+        user = collection.find_one({"userNo": username})
 
-        if not user or not collection.find_one({"password": password}):
+        if not user or not collection.find_one({"authCode": password}):
             return jsonify({"msg": "Kullanıcı adı veya şifre hatalı"}), 401
 
-        access_token = create_access_token(identity=username, expires_delta=timedelta(minutes=30))
+        access_token = create_access_token(identity=username, expires_delta=timedelta(minutes=33330))
         return jsonify(access_token=access_token), 200

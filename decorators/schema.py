@@ -18,7 +18,7 @@ def schematics(func_name: str):
                                "KK_Islem_ID": {'required': False, 'empty': False, 'type': 'string', 'maxlength': 200},
                                },
                "login": {
-                   "username": {'required': True, 'empty': False, 'type': 'string', 'minlength': 5, 'maxlength': 32},
+                   "username": {'required': True, 'empty': False, 'type': 'string', 'minlength': 1, 'maxlength': 32},
                    "password": {'required': True, 'empty': False, 'type': 'string', 'minlength': 4, 'maxlength': 64},
                    },
                "payment_endpoint": {"G": {'required': True, 'empty': False},
@@ -42,6 +42,19 @@ def schematics(func_name: str):
                                   "Data3": {'required': False, 'empty': False, 'type': 'string', 'maxlength': 250},
                                   "Data4": {'required': False, 'empty': False, 'type': 'string', 'maxlength': 250},
                                   "KK_Islem_ID": {'required': False, 'empty': False, 'type': 'string', 'maxlength': 200},
-                                  }
+                                  },
+               "cancel_refund_endpoint": {
+                            "G": {'required': True, 'empty': False},
+                                  "GUID": {'required': True, 'empty': False, 'type': 'string', 'minlength': 36, 'maxlength': 36},
+                                  "Durum": {'required': True, 'empty': False, 'type': 'string', "allowed": ["IPTAL", "IADE"]},
+                                  "Siparis_ID": {'required': False, 'empty': False, 'type': 'string'},
+                                  "Tutar": {'required': True, 'empty': False, 'type': 'number', "coerce": float}
+               },
+               "get_list_of_cards": {
+                            "G": {'required': True, 'empty': False},
+                                  "GUID": {'required': True, 'empty': False, 'type': 'string', 'minlength': 36, 'maxlength': 36},
+                                  "KS_KK_Kisi_ID": {'required': False, 'empty': False, 'type': 'string', 'minlength': 11, 'maxlength': 11, 'regex': '^[0-9]+$'},
+               }
+
                }
     return schemas[func_name]

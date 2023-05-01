@@ -1,3 +1,5 @@
+import datetime
+
 from DB_operations.login import db
 
 collection = db["users"]
@@ -5,7 +7,8 @@ collection = db["users"]
 users = [
     {
         "userNo": "1",
-        "authCode": "f0cd28f2-977e-4e0b-b0f5-e9bde9e74b68",
+        "authCode": "12345678",
+        "GUID": "f0cd28f2-977e-4e0b-b0f5-e9bde9e74b68",
         "name": "Selman",
         "surname": "Kaya",
         "birthDate": "11/11/2001",
@@ -16,12 +19,11 @@ users = [
                      "88111a5d-3e50-4a37-8a51-6b935aa755f4"
                      ],
         "balance": float(500),
-        "username": "selman",
-        "password": "kaya"
     },
     {
         "userNo": "2",
-        "authCode": "86f00bcc-9bdd-4152-80d1-3ac2742263ac",
+        "authCode": "12345678",
+        "GUID": "86f00bcc-9bdd-4152-80d1-3ac2742263ac",
         "name": "İrem",
         "surname": "Yıldız",
         "birthDate": "09/09/1994",
@@ -31,12 +33,11 @@ users = [
         "allCards": ["1069582e-c2fc-40fb-8d94-eeb68b87ea09"
                      ],
         "balance": float(1000),
-        "username": "irem",
-        "password": "yildiz"
     },
     {
         "userNo": "3",
-        "authCode": "21e9daf6-c15a-430b-98a5-f57faa2d079c",
+        "authCode": "12345678",
+        "GUID": "21e9daf6-c15a-430b-98a5-f57faa2d079c",
         "name": "Mehmet",
         "surname": "Kılıç",
         "birthDate": "09/09/1993",
@@ -46,12 +47,11 @@ users = [
         "allCards": ["a9cd94dc-b1cc-4621-a91e-4207efa4124c"
                      ],
         "balance": float(2000),
-        "username": "mehmer",
-        "password": "kilic"
     },
     {
         "userNo": "4",
-        "authCode": "baeebb08-3958-439d-bdaa-ee59fc4fdcd4",
+        "authCode": "12345678",
+        "GUID": "baeebb08-3958-439d-bdaa-ee59fc4fdcd4",
         "name": "Zeynep",
         "surname": "Altın",
         "birthDate": "03/03/1996",
@@ -61,12 +61,11 @@ users = [
         "allCards": ["0b48a0ac-1dd0-4db0-82aa-772be05d2905"
                      ],
         "balance": float(25000),
-        "username": "zeynep",
-        "password": "altin"
     },
     {
         "userNo": "5",
-        "authCode": "e4b31bc9-955d-4442-8f8a-998fe54ba9c4",
+        "authCode": "12345678",
+        "GUID": "e4b31bc9-955d-4442-8f8a-998fe54ba9c4",
         "name": "Şafak",
         "surname": "Uzun",
         "birthDate": "03/03/1990",
@@ -76,12 +75,11 @@ users = [
         "allCards": ["6c9bc5f2-2ce2-4e3b-95cc-0347ff873b5f"
                      ],
         "balance": float(15000),
-        "username": "safak",
-        "password": "uzun"
     },
     {
         "userNo": "6",
-        "authCode": "71a20028-5747-4e32-8a95-cd99769f3e99",
+        "authCode": "12345678",
+        "GUID": "71a20028-5747-4e32-8a95-cd99769f3e99",
         "name": "Şebnem",
         "surname": "Tütüncü",
         "birthDate": "03/01/1991",
@@ -91,12 +89,11 @@ users = [
         "allCards": ["f84387ea-dcea-4b1c-81ca-a6d1feb2ec92"
                      ],
         "balance": float(30000),
-        "username": "sebnem",
-        "password": "tutuncu"
     },
     {
         "userNo": "7",
-        "authCode": "8d1f7a57-176a-4c1b-a5d3-f683758768a4",
+        "authCode": "12345678",
+        "GUID": "8d1f7a57-176a-4c1b-a5d3-f683758768a4",
         "name": "Zehra",
         "surname": "Çamlıdere",
         "birthDate": "03/03/1990",
@@ -106,12 +103,11 @@ users = [
         "allCards": ["ee198307-5802-4337-964b-cde32329212c"
                      ],
         "balance": float(0),
-        "username": "zehra",
-        "password": "camlidere"
     },
     {
         "userNo": "8",
-        "authCode": "1a93e553-0c43-4577-9ca5-54dd5ddec2e9",
+        "authCode": "12345678",
+        "GUID": "1a93e553-0c43-4577-9ca5-54dd5ddec2e9",
         "name": "Yasin",
         "surname": "Türk",
         "birthDate": "05/05/1999",
@@ -121,12 +117,11 @@ users = [
         "allCards": [""
                      ],
         "balance": float(80000),
-        "username": "yasin",
-        "password": "turk"
     },
     {
         "userNo": "9",
-        "authCode": "62e90f79-045a-44cb-8a79-b2a116b6e4a1",
+        "authCode": "12345678",
+        "GUID": "62e90f79-045a-44cb-8a79-b2a116b6e4a1",
         "name": "Cansu",
         "surname": "Gök",
         "birthDate": "03/03/1990",
@@ -136,12 +131,11 @@ users = [
         "allCards": ["ed6c7d94-9648-4bb6-aa9b-b69280839fd0"
                      ],
         "balance": float(40000),
-        "username": "cansu",
-        "password": "gok"
     },
     {
         "userNo": "10",
-        "authCode": "be97f9da-5b2a-4a83-9b00-9c236bdafde4",
+        "authCode": "12345678",
+        "GUID": "be97f9da-5b2a-4a83-9b00-9c236bdafde4",
         "name": "Elvan",
         "surname": "Dere",
         "birthDate": "03/03/1991",
@@ -152,12 +146,10 @@ users = [
                      "09df145b-fe13-4119-b4d7-eda81d583cfd"
                      ],
         "balance": float(500),
-        "username": "elvan",
-        "password": "dere"
     }
 ]
 
-index_key = [('username', 1)]
+index_key = [('userNo', 1)]
 index_options = {'unique': True}
 
 users_data = collection.insert_many(users)
@@ -171,8 +163,8 @@ cards = [
         "KK_No": "4546711234567894",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2026",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "selman kişisel",
+        "KK_Islem_ID": "12",
         "balance": float(500),
         "security_number": "000",
         "3d_secure_password": "a",
@@ -180,16 +172,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2026-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2026-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "88111a5d-3e50-4a37-8a51-6b935aa755f4",
         "KK_Sahibi": "Selman Kaya",
         "KK_No": "4022774022774026",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2026",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "ödeme",
+        "KK_Islem_ID": "13",
         "balance": float(500),
         "security_number": "000",
         "3d_secure_password": "a",
@@ -197,16 +189,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2026-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2026-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "1069582e-c2fc-40fb-8d94-eeb68b87ea09",
         "KK_Sahibi": "İrem Yıldız",
         "KK_No": "4355084355084358",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2026",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "irem emekli",
+        "KK_Islem_ID": "14",
         "balance": float(1000),
         "security_number": "000",
         "3d_secure_password": "a",
@@ -214,16 +206,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2026-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2026-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "a9cd94dc-b1cc-4621-a91e-4207efa4124c",
         "KK_Sahibi": "Mehmet Kılıç",
         "KK_No": "4508034508034509",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2026",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "mehmet iş özel",
+        "KK_Islem_ID": "15",
         "balance": float(2000),
         "security_number": "000",
         "3d_secure_password": "a",
@@ -231,16 +223,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2026-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2026-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "0b48a0ac-1dd0-4db0-82aa-772be05d2905",
         "KK_Sahibi": "Zeynep Altın",
         "KK_No": "4531444531442283",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2026",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "iş kart",
+        "KK_Islem_ID": "16",
         "balance": float(25000),
         "security_number": "001",
         "3d_secure_password": "a",
@@ -248,16 +240,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2026-12-31T00:00:00+03:00"},
-    # todo
+        "KK_SK": "2026-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "6c9bc5f2-2ce2-4e3b-95cc-0347ff873b5f",
         "KK_Sahibi": "Şafak Uzun",
         "KK_No": "4090700101174272",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2022",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "ev",
+        "KK_Islem_ID": "17",
         "balance": float(15000),
         "security_number": "104",
         "3d_secure_password": "a",
@@ -265,16 +257,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2022-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2022-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "f84387ea-dcea-4b1c-81ca-a6d1feb2ec92",
         "KK_Sahibi": "Şebnem Tütüncü",
         "KK_No": "4506344103118942",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2025",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "benim kart",
+        "KK_Islem_ID": "18",
         "balance": float(30000),
         "security_number": "000",
         "3d_secure_password": "34020",
@@ -282,16 +274,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2025-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2025-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "ee198307-5802-4337-964b-cde32329212c",
         "KK_Sahibi": "Zehra Çamlıdere",
         "KK_No": "4506347023253988",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2025",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "zehra emeklilik",
+        "KK_Islem_ID": "19",
         "balance": float(0),
         "security_number": "000",
         "3d_secure_password": "34020",
@@ -299,16 +291,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2025-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2025-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "1bd45400-6abe-4a85-94b6-1cb8bfe57e7a",
         "KK_Sahibi": "Yasin Türk",
         "KK_No": "4506347028991897",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2025",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "yasin uçak",
+        "KK_Islem_ID": "20",
         "balance": float(80000),
         "security_number": "000",
         "3d_secure_password": "34020",
@@ -316,16 +308,16 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2025-12-31T00:00:00+03:00"},
-
+        "KK_SK": "2025-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
     {
         "GUID": "ed6c7d94-9648-4bb6-aa9b-b69280839fd0",
         "KK_Sahibi": "Cansu Gök",
         "KK_No": "4506347026523718",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2025",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "cansu iş",
+        "KK_Islem_ID": "21",
         "balance": float(40000),
         "security_number": "000",
         "3d_secure_password": "34020",
@@ -333,7 +325,8 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2025-12-31T00:00:00+03:00"},
+        "KK_SK": "2025-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
 
     {
         "GUID": "2662772b-6497-4855-977a-a6eb05b6f093",
@@ -341,8 +334,8 @@ cards = [
         "KK_No": "5400617020092306",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2025",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "elvan iş",
+        "KK_Islem_ID": "22",
         "balance": float(500),
         "security_number": "000",
         "3d_secure_password": "34020",
@@ -350,7 +343,9 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2025-12-31T00:00:00+03:00"},
+        "KK_SK": "2025-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
+
 
     {
         "GUID": "09df145b-fe13-4119-b4d7-eda81d583cfd",
@@ -358,8 +353,8 @@ cards = [
         "KK_No": "5400617030400291",
         "KK_SK_Ay": "12",
         "KK_SK_Yil": "2025",
-        "KK_Kart_Adi": "",
-        "KK_Islem_ID": "",
+        "KK_Kart_Adi": "elvan ev",
+        "KK_Islem_ID": "21",
         "balance": float(8000),
         "security_number": "000",
         "3d_secure_password": "34020",
@@ -367,7 +362,8 @@ cards = [
         "KK_tip": "VISA",
         "KK_Marka": "Maximum",
         "KK_KD": "Kredi Kartı",
-        "KK_SK": "2025-12-31T00:00:00+03:00"},
+        "KK_SK": "2025-12-31T00:00:00+03:00",
+        "create_date": str(datetime.date.today())},
 ]
 for card in cards:
     for i, user in enumerate(users):
