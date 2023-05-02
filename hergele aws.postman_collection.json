@@ -73,7 +73,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\":\"selman\",\n\"password\": \"kaya\"\n}",
+					"raw": "{\"username\":\"1\",\n\"password\": \"12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
